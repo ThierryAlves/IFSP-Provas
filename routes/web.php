@@ -12,5 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('login');
+})->name('login');
+
+Route::post('/autenticar', 'HomeController@index')->name('home');
