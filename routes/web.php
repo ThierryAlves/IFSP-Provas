@@ -12,7 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('controle-acesso.login');
 })->name('login');
 
-Route::post('/autenticar', 'HomeController@index')->name('home');
+Route::get('/cadastrar', function () {
+    return view('controle-acesso.cadastrar');
+})->name('cadastrar');
+
+Route::post('/autenticar', 'UsuarioController@login')->name('autenticar');
+Route::post('/cadastrar', 'UsuarioController@inserir')->name('cadastrar');

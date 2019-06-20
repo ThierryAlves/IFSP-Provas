@@ -1,0 +1,21 @@
+@extends('base')
+@section('assets')
+    <link href="{{ asset('css/cadastrar.css') }}" rel="stylesheet" type="text/css" />
+@endsection
+@section('main')
+    <div class="flex-center position-ref full-height">
+        <div class="content">
+            <div class="wrapper fadeInDown">
+                <div id="formContent">
+                    <form class="form-horizontal" method="POST" action="{{ url('/cadastrar') }}">
+                        @csrf
+                        <input type="text" name="nome" placeholder="nome completo" required>
+                        <input type="email" name="email" placeholder="email" required>
+                        <input type="password" name="senha" placeholder="senha" required>
+                        <input type="submit" value="Cadastrar">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
