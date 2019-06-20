@@ -5,6 +5,15 @@
 @section('main')
     <div class="flex-center position-ref full-height">
         <div class="content">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div><br />
+            @endif
             <div class="wrapper fadeInDown">
                 <div id="formContent">
                     <form class="form-horizontal" method="POST" action="{{ url('/cadastrar') }}">

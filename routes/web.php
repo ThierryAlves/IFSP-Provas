@@ -19,5 +19,5 @@ Route::get('/cadastrar', function () {
     return view('controle-acesso.cadastrar');
 })->name('cadastrar');
 
-Route::post('/autenticar', 'UsuarioController@login')->name('autenticar');
-Route::post('/cadastrar', 'UsuarioController@inserir')->name('cadastrar');
+Route::post('/autenticar', 'ProfessorController@login')->name('autenticar');
+Route::post('/cadastrar', 'ProfessorController@inserir')->name('cadastrar');

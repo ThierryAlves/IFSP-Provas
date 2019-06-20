@@ -6,11 +6,20 @@
     <div class="flex-center position-ref full-height">
         <div class="content">
             <div class="wrapper fadeInDown">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div><br />
+                @endif
                 <div id="formContent">
                     <form class="form-horizontal" method="POST" action="{{ url('/autenticar') }}">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <input type="text" id="login" class="fadeIn second" name="login" placeholder="login" required>
-                        <input type="password" id="password" class="fadeIn third" name="password" placeholder="senha" required>
+                        @csrf
+                        <input type="text" id="login" class="fadeIn second" name="email" placeholder="email" required>
+                        <input type="password" id="password" class="fadeIn third" name="senha" placeholder="senha" required>
                         <input id="conectar" type="submit" class="fadeIn fourth" value="Conectar">
                     </form>
                     <div id="formFooter">

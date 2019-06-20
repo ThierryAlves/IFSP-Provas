@@ -4,7 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Usuario extends Model
+class Professor extends Model
 {
+    protected $table = 'professores';
     protected $fillable = ['email', 'senha'];
 }
