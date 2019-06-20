@@ -3,9 +3,12 @@
     <link href="{{ asset('css/login.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 @section('main')
-    <div class="flex-center position-ref full-height">
+    <div class="flex-center position-ref">
         <div class="content">
             <div class="wrapper fadeInDown">
+                <div class="fadeIn first">
+                    <img src="{{ asset('img/ifsp.jpg')}}" id="logo" class="rounded-circle img-fluid" alt="Logo"/>
+                </div>
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -23,7 +26,7 @@
                         <input id="conectar" type="submit" class="fadeIn fourth" value="Conectar">
                     </form>
                     <div id="formFooter">
-                        <a href="/cadastrar">Cadastre-se</a>
+                        <a href="{{ url("professor/cadastrar") }}">Cadastre-se</a>
                     </div>
                 </div>
             </div>

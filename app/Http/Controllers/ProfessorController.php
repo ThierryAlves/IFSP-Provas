@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\cadastrarRequest;
 use App\Professor;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
@@ -22,7 +23,7 @@ class ProfessorController extends Controller {
         }
     }
 
-    public function inserir(Request $request) {
+    public function inserir(cadastrarRequest $request) {
         $usuario = new Professor();
         $usuario->nome = strtoupper($request->input('nome'));
         $usuario->email = $request->input('email');

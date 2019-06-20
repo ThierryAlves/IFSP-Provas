@@ -11,13 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('controle-acesso.login');
-})->name('login');
+Route::get('/', function (){
+   return view('welcome');
+});
 
-Route::get('/cadastrar', function () {
-    return view('controle-acesso.cadastrar');
-})->name('cadastrar');
+Route::group(['prefix' => 'professor'], function () {
+    Route::get('/', function () {
+        return view('controle-acesso.login');
+    })->name('login');
 
-Route::post('/autenticar', 'ProfessorController@login')->name('autenticar');
-Route::post('/cadastrar', 'ProfessorController@inserir')->name('cadastrar');
+    Route::get('/cadastrar', function () {
+        return view('controle-acesso.cadastrar');
+    })->name('cadastrar');
+
+    Route::post('/autenticar', 'ProfessorController@login')->name('autenticar');
+    Route::post('/professor/inserir', 'ProfessorController@inserir');
+});
+

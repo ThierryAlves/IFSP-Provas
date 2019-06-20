@@ -13,7 +13,7 @@ class cadastrarRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,19 @@ class cadastrarRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nome' => 'required|string',
+            'email' => 'required|unique:professores,email',
+            'senha' => 'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+          'nome.required' => 'Nome é obrigatório',
+          'email.required' => 'Email é obrigatório',
+          'email.unique' => 'Email já cadastrado',
+          'senha.required' => 'Senha é obrigatória'
         ];
     }
 }
