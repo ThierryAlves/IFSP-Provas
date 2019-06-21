@@ -24,6 +24,16 @@ Route::group(['prefix' => 'professor'], function () {
         return view('controle-acesso.cadastrar');
     })->name('cadastrar');
 
+
+    Route::group(['middleware' => 'autenticarProfessor'], function() {
+        Route::get('/provas', 'ProvaController@index')->name('provas');
+        Route::get('/cadastrar-provas', function () {
+            return view('professor.cadastrar-provas');
+        });
+
+        Route::post('/provas/inserir', 'ProvaController@inserir');
+    });
+
     Route::post('/autenticar', 'ProfessorController@login')->name('autenticar');
     Route::post('/professor/inserir', 'ProfessorController@inserir');
 });

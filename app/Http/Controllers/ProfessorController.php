@@ -12,14 +12,16 @@ class ProfessorController extends Controller {
 
     public function login(LoginRequest $request) {
         try {
-            Professor::where([
+            $professor = Professor::where([
                 'email' => $request->input('email'),
                 'senha' => md5($request->input('senha'))
             ])->firstOrFail();
 
-            return view('welcome');
+            session(['id' => $professor->id]);
+
+            return redirect('/professor/provas');
         }catch (ModelNotFoundException $e) {
-            return redirect()->route('login')->withErrors(['msg' => 'Professor não encontrado']);
+            return redirect()->route('login')->withErrors(['msg' => 'Email ou senha inválido.']);
         }
     }
 

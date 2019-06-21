@@ -19,7 +19,7 @@
                     </div><br />
                 @endif
                 <div id="formContent">
-                    <form class="form-horizontal" method="POST" action="{{ url('/autenticar') }}">
+                    <form class="form-horizontal" method="POST" action="{{ url('professor/autenticar') }}">
                         @csrf
                         <input type="text" id="login" class="fadeIn second" name="email" placeholder="email" required>
                         <input type="password" id="password" class="fadeIn third" name="senha" placeholder="senha" required>
