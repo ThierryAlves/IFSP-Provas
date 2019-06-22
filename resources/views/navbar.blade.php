@@ -1,7 +1,7 @@
 <!-- navigation bar -->
 <div class="container">
     <div class="row">
-        <div class="col-xs-12 col-md-7 offset-sm-2 col-md-7">
+        <div class="d-flex justify-content-center col-xs-12 col-md-7 offset-sm-2 col-md-7">
 
             <ul class="nav justify-content-center">
                 <li class="nav-item">

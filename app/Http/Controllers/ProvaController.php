@@ -10,7 +10,7 @@ class ProvaController extends Controller
 {
     public function index() {
         $provas = Prova::all();
-        return view('professor.provas', ['provas' => $provas]);
+        return view('professor.provas', compact('provas'));
     }
 
     public function inserir(InserirProvaRequest $request) {
@@ -19,5 +19,11 @@ class ProvaController extends Controller
         Prova::create($insert);
 
         return redirect('/professor/provas');
+    }
+
+    public function find($id) {
+        $provas = Prova::with('questoes')->where(['id' => $id])->get();
+
+        return view('professor.adicionar-questoes', compact('provas'));
     }
 }

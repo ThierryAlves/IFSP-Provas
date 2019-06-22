@@ -26,10 +26,15 @@ Route::group(['prefix' => 'professor'], function () {
 
 
     Route::group(['middleware' => 'autenticarProfessor'], function() {
+
+
         Route::get('/provas', 'ProvaController@index')->name('provas');
         Route::get('/cadastrar-provas', function () {
             return view('professor.cadastrar-provas');
         });
+
+        Route::get('/adicionar/{id}', 'ProvaController@find');
+        Route::post('/salvar/{id}', 'QuestaoController@inserir');
 
         Route::post('/provas/inserir', 'ProvaController@inserir');
     });

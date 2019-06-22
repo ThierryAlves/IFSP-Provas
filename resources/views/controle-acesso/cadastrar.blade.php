@@ -14,7 +14,7 @@
                     </ul>
                 </div><br />
             @endif
-            <div class="wrapper fadeInDown">
+            <div class="wrapper">
                 <div id="formContent">
                     <form class="form-horizontal" method="POST" action="{{ url('/cadastrar') }}">
                         @csrf
