@@ -9,7 +9,8 @@ use App\Http\Requests\InserirProvaRequest;
 class ProvaController extends Controller
 {
     public function index() {
-        $provas = Prova::all();
+        $provas = Prova::with('questoes.alternativas')->get();
+
         return view('professor.provas', compact('provas'));
     }
 

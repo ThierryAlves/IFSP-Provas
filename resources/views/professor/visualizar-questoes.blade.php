@@ -13,15 +13,24 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($questoes as $questao)
+            @foreach($questoes as $chave => $questao)
                 <tr>
                     <td>{{$questao->descricao}}</td>
-                    <td>
-                        <button class="btn btn-success btn-sm"
-                                onclick="window.location='{{ url("professor/alternativa/adicionar/$questao->id") }}'">
-                            Adicionar alternativas
-                        </button>
-                    </td>
+                    @if(!isset($questao->alternativas[$chave]))
+                        <td>
+                            <button class="btn btn-success btn-sm"
+                                    onclick="window.location='{{ url("professor/alternativa/adicionar/$questao->id") }}'">
+                                Adicionar alternativas
+                            </button>
+                        </td>
+                    @else
+                        <td>
+                            <button class="btn btn-primary btn-sm"
+                                    onclick="window.location='{{ url("professor/alternativa/visualizar/$questao->id") }}'">
+                                visualizar Alternativas
+                            </button>
+                        </td>
+                    @endif
                 </tr>
             @endforeach
             </tbody>

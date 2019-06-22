@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class QuestaoController extends Controller
 {
     public function index($id) {
-        $questoes = Questao::where(['prova_id' => $id])->get();
+        $questoes = Questao::where(['prova_id' => $id])->with('alternativas')->get();
 
         return view('professor.visualizar-questoes', compact('questoes'));
     }

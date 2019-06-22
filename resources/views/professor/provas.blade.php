@@ -12,26 +12,26 @@
                 <th scope="col">Data Inicio</th>
                 <th scope="col">Data Final</th>
                 <th scope="col"></th>
-                <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
-            @foreach($provas as $prova)
+            @foreach($provas as $chave => $prova)
                 <tr>
                     <td>{{$prova->descricao}}</td>
                     <td>{{$prova->data_inicio}}</td>
                     <td>{{$prova->data_final}}</td>
                     <td>
+                    @if(isset($prova->questoes[$chave]))
                         <button class="btn btn-primary btn-sm"
                                 onclick="window.location='{{ url("professor/questao/visualizar/$prova->id") }}'">
-                            Questões
+                            Visualizar Questões
                         </button>
-                    </td>
-                    <td>
+                    @else
                         <button class="btn btn-success btn-sm"
                                 onclick="window.location='{{ url("professor/questao/adicionar/$prova->id") }}'">
                             Adicionar questões
                         </button>
+                    @endif
                     </td>
                 </tr>
             @endforeach
