@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class QuestaoController extends Controller
 {
+    public function index($id) {
+        $questoes = Questao::where(['prova_id' => $id])->get();
+
+        return view('professor.visualizar-questoes', compact('questoes'));
+    }
+
     public function inserir(Request $request, $id) {
 
         $dados = $request->questoes;
