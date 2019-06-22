@@ -34,9 +34,15 @@ Route::group(['prefix' => 'professor'], function () {
     Route::group(['middleware' => 'autenticarProfessor'], function() {
 
         Route::get('/provas', 'ProvaController@index')->name('provas');
+
         Route::get('/cadastrar-provas', function () {
             return view('professor.cadastrar-provas');
         });
+
+        Route::get('/cadastrar-aluno', function () {
+            return view('professor.cadastrar-alunos');
+        });
+        Route::post('aluno/salvar', 'AlunoController@inserir');
 
         //Questões
         Route::group(['prefix' => 'questao'], function (){
