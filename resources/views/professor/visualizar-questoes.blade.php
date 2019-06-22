@@ -16,7 +16,10 @@
             @foreach($questoes as $chave => $questao)
                 <tr>
                     <td>{{$questao->descricao}}</td>
-                    @if(!isset($questao->alternativas[$chave]))
+                    @foreach($questao->alternativas as $alternativa)
+                        @php($idQuestaoAlternativa = $alternativa->questao_id)
+                    @endforeach
+                    @if($questao->id != $idQuestaoAlternativa)
                         <td>
                             <button class="btn btn-success btn-sm"
                                     onclick="window.location='{{ url("professor/alternativa/adicionar/$questao->id") }}'">

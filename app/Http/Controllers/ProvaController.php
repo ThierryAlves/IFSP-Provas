@@ -27,4 +27,16 @@ class ProvaController extends Controller
 
         return view('professor.adicionar-questoes', compact('provas'));
     }
+
+    public function getprovasAluno() {
+        $provas = Prova::where('data_inicio','<=',now())->get();
+
+        return view('aluno.provas', compact('provas'));
+    }
+
+    public function getProvaResponder($id) {
+        $prova = Prova::with('questoes.alternativas')->where(['id' => $id])->first();
+
+        return view('aluno.responder', compact('prova'));
+    }
 }

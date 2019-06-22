@@ -62,3 +62,18 @@ Route::group(['prefix' => 'professor'], function () {
     });
 });
 
+
+
+//Rotas do aluno
+Route::group(['prefix' => 'aluno'], function(){
+    Route::get('/', function () {
+        return view('controle-acesso.login-aluno');
+    })->name('acesso-aluno');
+
+    Route::post('/autenticar', 'AlunoController@login');
+
+    Route::group(['prefix' => 'provas'], function() {
+        Route::get('/', 'ProvaController@getprovasAluno')->name('provas');
+        Route::get('/responder/{id}', 'ProvaController@getProvaResponder');
+    });
+});
