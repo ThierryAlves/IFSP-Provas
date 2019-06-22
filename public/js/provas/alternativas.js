@@ -2,13 +2,13 @@ $(document).ready(function() {
     var alternativas = $(".alternativas");
     var add = $(".add_alternativas");
 
-    var x = 0;
+    var inputs = 0;
     $(add).click(function(e) {
         e.preventDefault();
         var length = alternativas.find("input:text").length;
 
-        if (x < 5) {
-            x++;
+        if (inputs < 5) {
+            inputs++;
             $(alternativas).append(
                 '<label class="btn btn-secondary active">\n' +
                 '    <input type="radio" name="alternativaCorreta" value="' + (length+1) + '"> Active\n' +
