@@ -18,7 +18,7 @@
                     <td>{{$questao->descricao}}</td>
                     <td>
                         <button class="btn btn-success btn-sm"
-                                onclick="window.location='{{ url("professor/questao/adicionar/$questao->id") }}'">
+                                onclick="window.location='{{ url("professor/alternativa/adicionar/$questao->id") }}'">
                             Adicionar alternativas
                         </button>
                     </td>

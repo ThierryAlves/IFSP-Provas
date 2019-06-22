@@ -21,6 +21,12 @@ class QuestaoController extends Controller
             Questao::create(['prova_id' => $id, 'descricao' => $questao]);
         }
 
-        return redirect('/professor/provas');
+        return redirect('/professor/questao/visualizar/'.$id);
+    }
+
+    public function find($id) {
+        $questao = Questao::find(['id' => $id]);
+
+        return view('professor.adicionar-alternativas', compact('questao'));
     }
 }

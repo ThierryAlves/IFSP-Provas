@@ -16,7 +16,7 @@
             </div><br />
         @endif
         <div class="container">
-            <form class="form-horizontal" method="POST" action="{{ url('professor/salvar/' . $provas[0]->id) }}">
+            <form class="form-horizontal" method="POST" action="{{ url('professor/questao/salvar/' . $provas[0]->id) }}">
                 @csrf
                 <div class="d-flex justify-content-center">
                     <h2>{{$provas[0]->descricao}}</h2>

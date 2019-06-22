@@ -45,6 +45,13 @@ Route::group(['prefix' => 'professor'], function () {
             Route::post('/salvar/{id}', 'QuestaoController@inserir');
         });
 
+        //Alternativas
+        Route::group(['prefix' => 'alternativa'], function (){
+            Route::get('/adicionar/{id}', 'QuestaoController@find');
+            Route::get('/visualizar/{id}', 'AlternativaController@index');
+            Route::post('/salvar/{id}', 'AlternativaController@inserir');
+        });
+
         Route::post('/provas/inserir', 'ProvaController@inserir');
     });
 });
