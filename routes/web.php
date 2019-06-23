@@ -73,7 +73,7 @@ Route::group(['prefix' => 'aluno'], function(){
 
     Route::post('/autenticar', 'AlunoController@login');
 
-    Route::group(['prefix' => 'provas'], function() {
+    Route::group(['prefix' => 'provas', 'middleware' => 'autenticarAluno'], function() {
         Route::get('/', 'ProvaController@getprovasAluno')->name('provas');
         Route::get('/responder/{id}', 'ProvaController@getProvaResponder');
         Route::post('/salvar-resposta/', 'RespostaController@salvarResposta');

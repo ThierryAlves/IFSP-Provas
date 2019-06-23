@@ -25,7 +25,7 @@ class RespostaController extends Controller
             }
 
             Resposta::create([
-                'aluno_id' => 1,
+                'aluno_id' => $request->session()->get('id_aluno'),
                 'prova_id'   => $request->idProva,
                 'alternativa_id' => $alternativa,
                 'correta' => $resultado == null ? 0 : true,
@@ -34,7 +34,7 @@ class RespostaController extends Controller
 
 
         Resultado::create([
-            'aluno_id' => 1,
+            'aluno_id' => $request->session()->get('id_aluno'),
             'prova_id' => $request->idProva,
             'questoes_corretas' => $corretas,
         ]);
