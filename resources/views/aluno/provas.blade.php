@@ -3,7 +3,6 @@
     <link href="{{ asset('css/welcome.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 @section('main')
-    @extends('navbar')
     <div class="container">
         <table class="table">
             <thead>
@@ -12,6 +11,7 @@
                 <th scope="col">Data Inicio</th>
                 <th scope="col">Data Final</th>
                 <th scope="col"></th>
+                <th scope="col">Nota</th>
             </tr>
             </thead>
             <tbody>
@@ -20,12 +20,27 @@
                     <td>{{$prova->descricao}}</td>
                     <td>{{$prova->data_inicio}}</td>
                     <td>{{$prova->data_final}}</td>
-                    <td>
-                        <button class="btn btn-success btn-sm"
-                                onclick="window.location='{{ url("aluno/provas/responder/$prova->id") }}'">
-                            Responder
-                        </button>
-                    </td>
+                    @if(isset($prova->respostas[0]))
+                        <td>
+                            <div class="btn btn-primary btn-sm">
+                                Prova Realizada
+                            </div>
+                        </td>
+                        <td>
+                            @foreach($prova->resultados as $resultado)
+                                @if($prova->id == $resultado->prova_id)
+                                    {{$resultado->questoes_corretas}}/{{count($prova->respostas)}}
+                                @endif
+                            @endforeach
+                        </td>
+                    @else
+                        <td>
+                            <button class="btn btn-success btn-sm"
+                                    onclick="window.location='{{ url("aluno/provas/responder/$prova->id") }}'">
+                                Responder
+                            </button>
+                        </td>
+                    @endif
                 </tr>
             @endforeach
             </tbody>

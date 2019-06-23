@@ -12,4 +12,14 @@ class Prova extends Model
     {
         return $this->hasMany('App\Questao');
     }
+
+    public function respostas()
+    {
+        return $this->hasMany('App\Resposta');
+    }
+
+    public function resultados()
+    {
+        return $this->hasMany('App\Resultado');
+    }
 }

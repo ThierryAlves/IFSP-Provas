@@ -1,6 +1,5 @@
 @extends('base')
 @section('main')
-    @extends('navbar')
     <div class="container">
         <h2>{{$prova->descricao}}</h2>
         <form method="POST" action="{{ url('aluno/provas/salvar-resposta/') }}">
@@ -8,6 +7,7 @@
                 @csrf
                 <div class="col-md-12">
                     {{$questao->descricao}}
+                    <input type="hidden" value="{{$prova->id}}" name="idProva">
                     @foreach($questao->alternativas as $alternativa)
                         <div class="col-md-8">
                             <input type="radio" name="resposta[{{$questao->id}}]" value="{{$alternativa->id}}">

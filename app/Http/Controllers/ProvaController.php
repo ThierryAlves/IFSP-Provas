@@ -29,7 +29,7 @@ class ProvaController extends Controller
     }
 
     public function getprovasAluno() {
-        $provas = Prova::where('data_inicio','<=',now())->get();
+        $provas = Prova::with(['respostas', 'resultados'])->where('data_inicio','<=',now())->get();
 
         return view('aluno.provas', compact('provas'));
     }
