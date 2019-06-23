@@ -34,6 +34,7 @@ Route::group(['prefix' => 'professor'], function () {
     Route::group(['middleware' => 'autenticarProfessor'], function() {
 
         Route::get('/provas', 'ProvaController@index')->name('provas');
+        Route::get('/provas/{id}/resultado/', 'ResultadoController@getResultado');
 
         Route::get('/cadastrar-provas', function () {
             return view('professor.cadastrar-provas');

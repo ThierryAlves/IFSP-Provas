@@ -12,6 +12,7 @@
                 <th scope="col">Data Inicio</th>
                 <th scope="col">Data Final</th>
                 <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
@@ -32,6 +33,12 @@
                             Adicionar questões
                         </button>
                     @endif
+                    </td>
+                    <td>
+                        <button class="btn btn-primary btn-sm"
+                                onclick="window.location='{{ url("professor/provas/$prova->id/resultado") }}'">
+                            Resultados
+                        </button>
                     </td>
                 </tr>
             @endforeach

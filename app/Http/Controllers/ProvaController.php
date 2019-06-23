@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Aluno;
 use App\Prova;
 use Illuminate\Http\Request;
 use App\Http\Requests\InserirProvaRequest;
@@ -39,4 +40,5 @@ class ProvaController extends Controller
 
         return view('aluno.responder', compact('prova'));
     }
+
 }
