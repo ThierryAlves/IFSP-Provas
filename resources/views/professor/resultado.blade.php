@@ -15,13 +15,13 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                @foreach($resultados as $resultado)
-                <td>{{$resultado->aluno->nome}}</td>
-                <td>{{$resultado->created_at}}</td>
-                <td>{{$resultado->questoes_corretas}}/{{count($resultado->prova->questoes)}}</td>
-                @endforeach
-            </tr>
+            @foreach($resultados as $resultado)
+                <tr>
+                    <td>{{$resultado->aluno->nome}}</td>
+                    <td>{{$resultado->created_at}}</td>
+                    <td>{{$resultado->questoes_corretas}}/{{count($resultado->prova->questoes)}}</td>
+                </tr>
+            @endforeach
             </tbody>
         </table>
     </div>
