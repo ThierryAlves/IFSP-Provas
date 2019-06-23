@@ -4,7 +4,7 @@
 namespace App\Http\Controllers;
 
 use App\Questao;
-use Illuminate\Http\Request;
+use App\Http\Requests\inserirQuestaoRequest;
 
 class QuestaoController extends Controller
 {
@@ -14,7 +14,7 @@ class QuestaoController extends Controller
         return view('professor.visualizar-questoes', compact('questoes'));
     }
 
-    public function inserir(Request $request, $id) {
+    public function inserir(inserirQuestaoRequest $request, $id) {
 
         $dados = $request->questoes;
         foreach ($dados as $questao) {

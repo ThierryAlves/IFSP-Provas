@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Aluno;
+use App\Http\Requests\inserirAlunoRequest;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class AlunoController extends Controller
 {
-    public function inserir(Request $request) {
+    public function inserir(inserirAlunoRequest $request) {
         $aluno = new Aluno();
         $aluno->nome = strtoupper($request->nome);
         $aluno->cpf = str_replace(['-','.'], '', $request->cpf);

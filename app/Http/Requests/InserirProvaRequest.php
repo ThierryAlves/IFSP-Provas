@@ -24,7 +24,7 @@ class InserirProvaRequest extends FormRequest
     public function rules()
     {
         return [
-            'descricao'   => 'required|max:70',
+            'descricao'   => 'required|max:100',
             'data_inicio' => 'required|Date|after:today',
             'data_final'   => 'required|Date|after_or_equal:data_inicio',
         ];
@@ -34,7 +34,7 @@ class InserirProvaRequest extends FormRequest
     {
         return [
             'descricao.required' => 'É obrigatório nomear sua prova',
-            'descricao.max' => 'O tamanho máximo do nome da prova é de 70 caracteres',
+            'descricao.max' => 'O tamanho máximo do nome da prova é de 100 caracteres',
             'data_inicio.required' => 'Data de inicio da prova é obrigatória',
             'data_inicio.after' => 'Data de inicio da prova deve ser igual ou maior que a data atual',
             'data_final.required' => 'Data final da prova é obrigatória',

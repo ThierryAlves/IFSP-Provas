@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class cadastrarRequest extends FormRequest
+class inserirAlunoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,20 +25,17 @@ class cadastrarRequest extends FormRequest
     {
         return [
             'nome' => 'required|regex:/[A-Z][a-z]* [A-Z][a-z]*/',
-            'email' => 'required|unique:professores,email',
-            'senha' => 'required|min:5'
+            'cpf' => 'required|digits:14',
         ];
     }
 
     public function messages()
     {
         return [
-            'nome.required' => 'Nome é obrigatório',
-            'nome.regex' => 'Deve ser enviado o nome e sobrenome do profesor',
-            'email.required' => 'Email é obrigatório',
-            'email.unique' => 'Email já cadastrado',
-            'senha.required' => 'Senha é obrigatória',
-            'senha.min' => 'Senha deve possuir ao menos 5 caracteres',
+            'nome.required' => 'Nome do aluno é obrigatório',
+            'nome.regex' => 'Deve ser enviado o nome e sobrenome do aluno',
+            'cpf.required' => 'CPF do aluno é obrigatório',
+            'cpf.digits' => 'CPF do aluno deve ser enviado por completo'
         ];
     }
 }

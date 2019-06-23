@@ -10,8 +10,8 @@ $(document).ready(function() {
         if (inputs < 5) {
             inputs++;
             $(alternativas).append(
-                '<label class="btn btn-secondary active">\n' +
-                '    <input type="radio" name="alternativaCorreta" value="' + (length+1) + '"> Active\n' +
+                '<label class="btn btn-outline-secondary active">\n' +
+                '    <input type="radio" name="alternativaCorreta" value="' + (length+1) + '"> Correta\n' +
                 '  </label><div><input type="text" placeholder="alternativa" name="alternativas[' + (length+1) + ']" /><button class="btn btn-danger btn-sm remover_questao">Remover</button></div>'
             );
         }

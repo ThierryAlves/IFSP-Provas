@@ -5,6 +5,15 @@
 @section('main')
     @extends('navbar')
     <div class="container">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div><br />
+        @endif
         <table class="table">
             <thead>
             <tr>
@@ -19,7 +28,7 @@
                     @foreach($questao->alternativas as $alternativa)
                         @php($idQuestaoAlternativa = $alternativa->questao_id)
                     @endforeach
-                    @if($questao->id != $idQuestaoAlternativa)
+                    @if(!isset($idQuestaoAlternativa) || $questao->id != $idQuestaoAlternativa)
                         <td>
                             <button class="btn btn-success btn-sm"
                                     onclick="window.location='{{ url("professor/alternativa/adicionar/$questao->id") }}'">

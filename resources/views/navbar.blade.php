@@ -14,10 +14,7 @@
                     <a class="nav-link" href="/professor/cadastrar-aluno">Cadastrar aluno</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/professor/resultados">Visualizar Resultados</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/professor/graficos">Gráficos</a>
+                    <a class="nav-link" href="/professor/graficos">Estatísticas</a>
                 </li>
             </ul>
 

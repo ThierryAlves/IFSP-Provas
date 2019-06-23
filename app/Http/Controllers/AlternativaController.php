@@ -4,7 +4,7 @@
 namespace App\Http\Controllers;
 
 use App\Alternativa;
-use Illuminate\Http\Request;
+use App\Http\Requests\inserirAlternartivaRequest;
 
 class AlternativaController extends Controller
 {
@@ -14,7 +14,7 @@ class AlternativaController extends Controller
         return view('professor.visualizar-alternativas', compact('alternativas'));
     }
 
-    public function inserir(Request $request, $id) {
+    public function inserir(inserirAlternartivaRequest $request, $id) {
 
         $alternativas = $request->alternativas;
         foreach ($alternativas as $chave => $descricao) {
@@ -25,6 +25,6 @@ class AlternativaController extends Controller
             Alternativa::create($inserir);
         }
 
-        return redirect('/professor/alternativa/visualizar/'.$id);
+        return redirect('/professor/questao/visualizar/'.$request->idProva);
     }
 }
