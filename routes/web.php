@@ -75,5 +75,6 @@ Route::group(['prefix' => 'aluno'], function(){
     Route::group(['prefix' => 'provas'], function() {
         Route::get('/', 'ProvaController@getprovasAluno')->name('provas');
         Route::get('/responder/{id}', 'ProvaController@getProvaResponder');
+        Route::post('/salvar-resposta/', 'RespostaController@salvarResposta');
     });
 });
