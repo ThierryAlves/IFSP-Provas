@@ -1,14 +1,7 @@
 $(document).ready(function () {
-
-    // Load the Visualization API and the corechart package.
     google.charts.load('current', {'packages':['corechart']});
-
-// Set a callback to run when the Google Visualization API is loaded.
     google.charts.setOnLoadCallback(drawChart);
 
-// Callback that creates and populates a data table,
-// instantiates the pie chart, passes in the data and
-// draws it.
     function drawChart() {
 
         var rows = [];
@@ -19,15 +12,12 @@ $(document).ready(function () {
             media = media + dados[i].questoes_corretas;
         }
 
-        console.log(media);
-
         media = media/dados.length;
 
         dados.forEach(function (element) {
             rows.push([element.aluno.nome, element.questoes_corretas, media]);
         });
 
-        // Create the data table.
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Aluno');
         data.addColumn('number', 'Nota');
