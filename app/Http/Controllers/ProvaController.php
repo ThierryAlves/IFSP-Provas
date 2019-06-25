@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Aluno;
 use App\Prova;
+use App\Resultado;
 use Illuminate\Http\Request;
 use App\Http\Requests\InserirProvaRequest;
 
@@ -42,7 +43,12 @@ class ProvaController extends Controller
         return view('aluno.provas', compact('provas'));
     }
 
-    public function getProvaResponder($id) {
+    public function getProvaResponder(Request $request, $id) {
+
+        if (Resultado::where(['aluno_id' => $request->session()->get('id_aluno'),'prova_id' => $id])) {
+            return redirect('/aluno/provas')->withErrors(['msg' => 'Prova já respondida.']);
+        }
+
         $prova = Prova::with('questoes.alternativas')->where(['id' => $id])->first();
 
         return view('aluno.responder', compact('prova'));
