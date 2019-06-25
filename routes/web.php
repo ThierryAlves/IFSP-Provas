@@ -35,6 +35,7 @@ Route::group(['prefix' => 'professor'], function () {
 
         Route::get('/provas', 'ProvaController@index')->name('provas');
         Route::get('/provas/{id}/resultado/', 'ResultadoController@getResultado');
+        Route::get('graficos/visualizar/{id}', 'ResultadoCOntroller@find');
 
         Route::get('/cadastrar-provas', function () {
             return view('professor.cadastrar-provas');

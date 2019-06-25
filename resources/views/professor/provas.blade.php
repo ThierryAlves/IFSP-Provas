@@ -13,6 +13,7 @@
                 <th scope="col">Data Final</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
@@ -35,7 +36,13 @@
                     @endif
                     </td>
                     <td>
-                        <button class="btn btn-primary btn-sm"
+                        <button class="btn btn-warning btn-sm"
+                                onclick="window.location='{{ url("professor/graficos/visualizar/$prova->id") }}'">
+                            Gráfico
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-secondary btn-sm"
                                 onclick="window.location='{{ url("professor/provas/$prova->id/resultado") }}'">
                             Resultados
                         </button>
