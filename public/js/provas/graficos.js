@@ -13,15 +13,25 @@ $(document).ready(function () {
 
         var rows = [];
         var max = dados[0].prova.questoes.length;
+        var media = 0;
 
-        dados.forEach(function (element, index) {
-            rows.push([element.aluno.nome, element.questoes_corretas]);
+        for (var i = 0; i < dados.length; i ++) {
+            media = media + dados[i].questoes_corretas;
+        }
+
+        console.log(media);
+
+        media = media/dados.length;
+
+        dados.forEach(function (element) {
+            rows.push([element.aluno.nome, element.questoes_corretas, media]);
         });
 
         // Create the data table.
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Aluno');
         data.addColumn('number', 'Nota');
+        data.addColumn('number', 'Media Geral');
         data.addRows(rows);
 
         // Set chart options
