@@ -25,9 +25,9 @@
                         <input type="password" id="password" class="fadeIn third" name="senha" placeholder="senha" required>
                         <input id="conectar" type="submit" class="fadeIn fourth" value="Conectar">
                     </form>
-                    <div id="formFooter">
-                        <a href="{{ url("professor/cadastrar") }}">Cadastre-se</a>
-                    </div>
+{{--                    <div id="formFooter">--}}
+{{--                        <a href="{{ url("professor/cadastrar") }}">Cadastre-se</a>--}}
+{{--                    </div>--}}
                 </div>
             </div>
         </div>
